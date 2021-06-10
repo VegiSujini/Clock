@@ -36,7 +36,7 @@ function myFunction() {
     var messageText12 = "You need to improve a bit!";
     document.getElementById("demo2").innerHTML = messageText12;
   } else {
-    var messageText12 = "You need to change your habits!";
+    var messageText12 = "Poor habits!";
     document.getElementById("demo2").innerHTML = messageText12;
   }
   //   if (m1 == n1) {
