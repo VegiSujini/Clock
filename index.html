@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>ALERT CLOCK</title>
+    <link rel="stylesheet" type="text/css" href="indexcss.css" />
+    <style>
+      #clock {
+        font-size: 150px;
+        width: 500px;
+        margin: 100px;
+        text-align: center;
+        border: 2px solid #f16059;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body class="square">
+    <div class="page">
+      <header>
+        <h1>ALERT CLOCK</h1>
+      </header>
+      <h4>
+        <center><span id="clock">Clock goes here</span></center>
+      </h4>
+
+      <center><img id="lolcatImage" src="1.jpg" alt="lolcat" /></center>
+      <br />
+      <b id="timeEvent">This is where u can find ur health balance</b>
+
+      <br /><br />
+      set Breakfast Time:
+      <input type="time" id="breakfastTimeSelector" value="07:00:00" />
+      <br /><br />
+      set Lunch Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+      <input type="time" id="lunchTimeSelector" value="13:00:00" />
+      <br /><br />
+      set Dinner Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+      <input type="time" id="dinnerTimeSelector" value="19:00:00" />
+      <br /><br />
+      <button id="resultButton" type="button" onclick="myFunction()">
+        RESULT
+      </button>
+      <b><p id="demo1"></p></b>
+      <p id="demo2"></p>
+      <footer>
+        <b> <p>Made with Love</p></b>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="indexjs.js"></script>
+    <script>
+      setInterval(showTime, 1000);
+      function showTime() {
+        let time = new Date();
+        let hour = time.getHours();
+        let min = time.getMinutes();
+        let sec = time.getSeconds();
+        am_pm = "AM";
+
+        if (hour > 12) {
+          hour -= 12;
+          am_pm = "PM";
+        }
+        if (hour == 0) {
+          hr = 12;
+          am_pm = "AM";
+        }
+        var hours = new Date().getHours();
+        if (hours < 12) {
+          document.getElementById("demo1").innerHTML = "Good Morning!";
+        } else if (hours >= 12 && hours < 16) {
+          document.getElementById("demo1").innerHTML = "Good Afternoon!";
+        } else if (hours >= 16 && hours <= 19) {
+          document.getElementById("demo1").innerHTML = "Good Evening!";
+        } else if (hours > 19) {
+          document.getElementById("demo1").innerHTML = "Good Night!";
+        }
+        hour = hour < 10 ? "0" + hour : hour;
+        min = min < 10 ? "0" + min : min;
+        sec = sec < 10 ? "0" + sec : sec;
+
+        let currentTime = hour + ":" + min + ":" + sec + am_pm;
+
+        document.getElementById("clock").innerHTML = currentTime;
+      }
+      showTime();
+    </script>
+  </body>
+</html>
